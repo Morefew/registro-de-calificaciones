@@ -1,3 +1,6 @@
+/**
+ * Referencias a los elementos del DOM
+ */
 let txtbxNombre = document.getElementById("txtbxNombre");
 let txtbxApellido = document.getElementById("txtbxApellido");
 let txtbxMatricula = document.getElementById("txtbxMatricula");
@@ -8,11 +11,24 @@ let btnCalcularPromedio = document.getElementById("bntCalcularPromedio");
 let btnLimpiarFormulario = document.getElementById("btnLimpiarFormulario");
 let tablaListadoEstudiantes = document.querySelector("tbody");
 
+/**
+ * Variables globales
+ * Lista de estudiantes y promedio total
+ */
 let listadoEstudiantes = [];
-
 let promedioTotal = 0;
 
+/**
+ * Clase Estudiante
+ */
 class Estudiante {
+  /**
+   * Constructor de la clase Estudiante
+   * @param {string} nombre - Nombre del estudiante
+   * @param {string} apellido - Apellido del estudiante
+   * @param {string} matricula - Matrícula del estudiante
+   * @param {number} nota - Nota del estudiante
+   */
   constructor(nombre, apellido, matricula, nota) {
     this.nombre = nombre;
     this.apellido = apellido;
@@ -21,6 +37,10 @@ class Estudiante {
   }
 }
 
+/**
+ * Función para calcular el promedio de las notas de los estudiantes
+ * @param {Array} listado - Lista de estudiantes
+ */
 const calcularPromedio = (listado = []) => {
   let totalNotas = 0;
   if (listado.length == 0) {
@@ -35,6 +55,9 @@ const calcularPromedio = (listado = []) => {
   }
 };
 
+/**
+ * Función para limpiar el formulario
+ */
 const limpiarFormulario = () => {
   txtbxNombre.value = "";
   txtbxApellido.value = "";
@@ -42,6 +65,14 @@ const limpiarFormulario = () => {
   txtbxCalificacion.value = "";
 };
 
+/**
+ * Función para crear un nuevo estudiante
+ * @param {string} nombre - Nombre del estudiante
+ * @param {string} apellido - Apellido del estudiante
+ * @param {string} matricula - Matrícula del estudiante
+ * @param {number} nota - Nota del estudiante
+ * @returns {Estudiante} - El estudiante creado
+ */
 const crearEstudiante = (nombre, apellido, matricula, nota) => {
   let estudiante = new Estudiante(nombre, apellido, matricula, nota);
   listadoEstudiantes.push(estudiante);
@@ -52,6 +83,10 @@ const crearEstudiante = (nombre, apellido, matricula, nota) => {
   return estudiante;
 };
 
+/**
+ * Función para mostrar un estudiante en la tabla
+ * @param {Estudiante} estudiante - El estudiante a mostrar
+ */
 const mostrarEstudiante = (estudiante) => {
   if (typeof estudiante === "object") {
     let tdNombre = document.createElement("td");
@@ -141,6 +176,9 @@ const mostrarEstudiante = (estudiante) => {
   }
 };
 
+/**
+ * Evento click para el botón Registrar Estudiante
+ */
 btnRegistrarEstudiante.addEventListener("click", (e) => {
   let nuevoEstudiante = crearEstudiante(
     txtbxNombre.value,
@@ -153,15 +191,25 @@ btnRegistrarEstudiante.addEventListener("click", (e) => {
   limpiarFormulario();
 });
 
+/**
+ * Evento click para el botón Calcular Promedio
+ */
 btnCalcularPromedio.addEventListener("click", (e) => {
   calcularPromedio(listadoEstudiantes);
 });
 
+/**
+ * Evento click para el botón Limpiar Formulario
+ */
 btnLimpiarFormulario.addEventListener("click", (e) => {
   limpiarFormulario();
 });
 
+/**
+ * Código para cargar los estudiantes almacenados en localStorage al iniciar la página
+ */
 if (!localStorage.hasOwnProperty("listadoEstudiantes")) {
+  // Código para inicializar localStorage si no existe
   localStorage.setItem(
     "listadoEstudiantes",
     JSON.stringify(listadoEstudiantes)
@@ -169,6 +217,7 @@ if (!localStorage.hasOwnProperty("listadoEstudiantes")) {
   listadoEstudiantes.forEach(mostrarEstudiante);
   calcularPromedio(listadoEstudiantes);
 } else {
+  // Código para cargar los estudiantes almacenados en localStorage
   listadoEstudiantes = JSON.parse(localStorage.getItem("listadoEstudiantes"));
   listadoEstudiantes.forEach(mostrarEstudiante);
   calcularPromedio(listadoEstudiantes);

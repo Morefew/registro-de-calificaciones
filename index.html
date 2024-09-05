@@ -20,17 +20,22 @@
     <title>Registro de Estudiantes</title>
   </head>
   <body>
+    <!-- Encabezado de la página -->
     <header class="titulo"><h1>Registro de Estudiantes</h1></header>
     <main>
+      <!-- Contenedor con efecto de vidrio -->
       <div class="glass">
         <div class="glass1"></div>
         <div class="glass2"></div>
         <div class="glass3"></div>
       </div>
+      <!-- Contenedor sin efecto de vidrio -->
       <div class="notGlass">
+        <!-- Formulario de registro de estudiantes -->
         <form id="datos-personales">
           <fieldset class="formulario">
             <legend>Datos personales Estudiante</legend>
+            <!-- Campos de texto para nombre, apellido, matrícula y calificación -->
             <label for="txtbxNombre">Nombre</label
             ><input
               type="text"
@@ -64,6 +69,7 @@
                 required
               />
             </div>
+            <!-- Botones para limpiar el formulario y registrar al estudiante -->
             <div class="btnsForm">
               <button
                 type="button"
@@ -86,11 +92,13 @@
             </div>
           </fieldset>
         </form>
+        <!-- Sección para listar a los estudiantes -->
         <section class="listadoEstudiantes">
           <h2>Listado de Estudiantes</h2>
           <table class="tablaEstudiantes">
             <thead>
               <tr>
+                <!-- Encabezados de la tabla -->
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Matricula</th>
@@ -102,6 +110,7 @@
             <tbody></tbody>
           </table>
         </section>
+        <!-- Sección para calcular el promedio del grupo -->
         <section id="calcular-promedio" class="calcular-promedio">
           <h2>Nota Promedio del Grupo</h2>
           <div class="resultadoPromedio">
