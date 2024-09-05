@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Registro de Estudiantes</title>
+  </head>
+  <body>
+    <header class="titulo"><h1>Registro de Estudiantes</h1></header>
+    <main>
+      <div class="glass">
+        <div class="glass1"></div>
+        <div class="glass2"></div>
+        <div class="glass3"></div>
+      </div>
+      <div class="notGlass">
+        <form id="datos-personales">
+          <fieldset class="formulario">
+            <legend>Datos personales Estudiante</legend>
+            <label for="txtbxNombre">Nombre</label
+            ><input
+              type="text"
+              value=""
+              name="txtbxNombre"
+              id="txtbxNombre"
+              autofocus
+              required
+            /><label for="txtbxApellido">Apellido</label
+            ><input
+              type="text"
+              value=""
+              name="txtbxApellido"
+              id="txtbxApellido"
+              required
+            /><label for="txtbxMatricula">Matricula</label
+            ><input
+              type="text"
+              value=""
+              name="txtbxMatricula"
+              id="txtbxMatricula"
+              required
+            />
+            <div class="calificacion">
+              <label for="txtbxCalificacion">Calificacion</label
+              ><input
+                type="text"
+                value=""
+                name="txtbxCalificacion"
+                id="txtbxCalificacion"
+                required
+              />
+            </div>
+            <div class="btnsForm">
+              <button
+                type="button"
+                name="limpiarFormulario"
+                form="datos-personales"
+                class="btnLimpiarFormulario"
+                id="btnLimpiarFormulario"
+              >
+                Limpiar Formulario
+              </button>
+              <button
+                type="button"
+                name="btnRegistrarEstudiante"
+                form="datos-personales"
+                class="btnRegistrarEstudiante"
+                id="btnRegistrarEstudiante"
+              >
+                Registrar Estudiante
+              </button>
+            </div>
+          </fieldset>
+        </form>
+        <section class="listadoEstudiantes">
+          <h2>Listado de Estudiantes</h2>
+          <table class="tablaEstudiantes">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Matricula</th>
+                <th>Calificación</th>
+                <th>Modificar</th>
+                <th>Eliminar</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </section>
+        <section id="calcular-promedio" class="calcular-promedio">
+          <h2>Nota Promedio del Grupo</h2>
+          <div class="resultadoPromedio">
+            <p id="txtResultado"></p>
+          </div>
+          <button
+            type="button"
+            name="bntCalcularPromedio"
+            class="bntCalcularPromedio"
+            id="bntCalcularPromedio"
+          >
+            Calcular Promedio
+          </button>
+        </section>
+      </div>
+    </main>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
